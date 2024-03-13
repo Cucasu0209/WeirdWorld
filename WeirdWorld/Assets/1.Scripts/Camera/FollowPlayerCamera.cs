@@ -1,6 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
-
+using UnityEngine.Rendering.PostProcessing;
 
 public class FollowPlayerCamera : MonoBehaviour
 {
@@ -22,7 +22,8 @@ public class FollowPlayerCamera : MonoBehaviour
     [SerializeField] private Vector2 AimingSensitivity;
     [SerializeField] private Camera Camera;
     [SerializeField] private Transform CenterUI;
-    [SerializeField] private Transform CamEffect;
+    public PostProcessVolume PPVolume;
+    private float TargetPPWeight = 0;
 
 
     private bool IsAiming = false;
@@ -41,6 +42,7 @@ public class FollowPlayerCamera : MonoBehaviour
     private void Update()
     {
         MaxDistance = Mathf.Lerp(MaxDistance, TargetMaxDistance, 10 * Time.deltaTime);
+        PPVolume.weight = Mathf.Clamp(Mathf.Lerp(PPVolume.weight, TargetPPWeight, 10 * Time.deltaTime), 0, 1);
     }
     private void OnDestroy()
     {
@@ -110,8 +112,8 @@ public class FollowPlayerCamera : MonoBehaviour
     public void StartAiming()
     {
         TargetMaxDistance = AimingMaxDistance;
-        TransformFollow.DOLocalMoveX(0.4f, 0.2f);
-         CamEffect.gameObject.SetActive(true);
+        TransformFollow.DOLocalMoveX(0.7f, 0.2f);
+        TargetPPWeight = 1;
 
         CenterUI.DOScale(1, 0.2f);
         Sensitivity = AimingSensitivity;
@@ -121,8 +123,7 @@ public class FollowPlayerCamera : MonoBehaviour
     {
         TargetMaxDistance = NormalMaxDistance;
         TransformFollow.DOLocalMoveX(0, 0.2f);
-        CamEffect.gameObject.SetActive(false);
-
+        TargetPPWeight = 0.01f;
         CenterUI.DOScale(0, 0.2f);
         Sensitivity = NormalSensitivity;
         IsAiming = false;

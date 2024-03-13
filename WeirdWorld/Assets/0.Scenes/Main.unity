@@ -2788,7 +2788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &291280534
 Transform:
   m_ObjectHideFlags: 0
@@ -2840,7 +2840,7 @@ MonoBehaviour:
   sharedProfile: {fileID: 11400000, guid: f1df444df6960eb44b16ad773160c5d1, type: 2}
   isGlobal: 0
   blendDistance: 1.5
-  weight: 1
+  weight: 0
   priority: 0
 --- !u!1001 &292455134
 PrefabInstance:
@@ -10411,12 +10411,13 @@ MonoBehaviour:
   TransformFollow: {fileID: 400251371}
   Player: {fileID: 1705625723}
   NormalMaxDistance: 3.5
-  AimingMaxDistance: 1
+  AimingMaxDistance: 1.3
   NormalSensitivity: {x: 0.2, y: 0.1}
   AimingSensitivity: {x: 0.05, y: 0.03}
   Camera: {fileID: 1134395501}
   CenterUI: {fileID: 851563117}
   CamEffect: {fileID: 291280534}
+  PPVolume: {fileID: 291280536}
 --- !u!114 &1134395504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16194,7 +16195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   RunningSpeed: 7
-  WalkingSpeed: 2
+  WalkingSpeed: 1.5
   JumpForce: 18
   GroundYOffset: 0
   GroundMask:
