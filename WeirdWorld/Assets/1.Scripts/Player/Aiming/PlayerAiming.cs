@@ -47,7 +47,6 @@ public class PlayerAiming : MonoBehaviour
 
     private void OnCameraAxisChange(float TouchDistX, float TouchDistY)
     {
-        Debug.Log("asdasdas");
         xAxis = (xAxis + TouchDistX * mouseSense) % 360;
         yAxis = Mathf.Clamp(yAxis + TouchDistY * mouseSense, -30, 20);
         camFollowPos.localEulerAngles = new Vector3(yAxis, camFollowPos.localEulerAngles.y, camFollowPos.localEulerAngles.z);
