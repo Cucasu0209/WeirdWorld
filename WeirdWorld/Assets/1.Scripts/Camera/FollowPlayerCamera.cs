@@ -105,7 +105,7 @@ public class FollowPlayerCamera : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(TransformFollow.position - transform.position);
         if (IsAiming)
         {
-            Player.rotation = transform.rotation;
+            Player.rotation = Quaternion.Euler(Player.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, Player.rotation.eulerAngles.z);
         }
     }
 

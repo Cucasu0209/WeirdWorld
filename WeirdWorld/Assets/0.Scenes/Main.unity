@@ -10416,7 +10416,6 @@ MonoBehaviour:
   AimingSensitivity: {x: 0.05, y: 0.03}
   Camera: {fileID: 1134395501}
   CenterUI: {fileID: 851563117}
-  CamEffect: {fileID: 291280534}
   PPVolume: {fileID: 291280536}
 --- !u!114 &1134395504
 MonoBehaviour:
@@ -16129,11 +16128,10 @@ GameObject:
   - component: {fileID: 1705625723}
   - component: {fileID: 1705625722}
   - component: {fileID: 1705625727}
+  - component: {fileID: 1705625730}
   - component: {fileID: 1705625725}
   - component: {fileID: 1705625724}
   - component: {fileID: 1705625726}
-  - component: {fileID: 1705625729}
-  - component: {fileID: 1705625728}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -16197,11 +16195,6 @@ MonoBehaviour:
   RunningSpeed: 7
   WalkingSpeed: 1.5
   JumpForce: 18
-  GroundYOffset: 0
-  GroundMask:
-    serializedVersion: 2
-    m_Bits: 65
-  Gravity: -50
 --- !u!114 &1705625725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16234,6 +16227,16 @@ MonoBehaviour:
   MyCamera: {fileID: 1134395503}
   charController: {fileID: 1705625727}
   IsAiming: 0
+  IsClimbing: 0
+  Gravity: -50
+  Velocity: {x: 0, y: 0, z: 0}
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 65
+  GroundYOffset: 0
+  WallMask:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!143 &1705625727
 CharacterController:
   m_ObjectHideFlags: 0
@@ -16260,7 +16263,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.82, z: 0}
---- !u!114 &1705625728
+--- !u!114 &1705625730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16269,34 +16272,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1705625720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+  m_Script: {fileID: 11500000, guid: ae7ac4d885ba5364b9c1cc7857e9d8dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RigLayers:
-  - m_Rig: {fileID: 0}
-    m_Active: 1
-  m_Effectors: []
---- !u!95 &1705625729
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705625720}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  ClimbingSpeed: 0.5
 --- !u!1001 &1729348909
 PrefabInstance:
   m_ObjectHideFlags: 0
